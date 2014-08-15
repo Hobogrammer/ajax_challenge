@@ -1,0 +1,2 @@
+class AdspotsController < ApplicationController
+end
