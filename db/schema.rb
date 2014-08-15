@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140815213618) do
+ActiveRecord::Schema.define(version: 20140815223116) do
 
   create_table "adspots", force: true do |t|
     t.integer  "zipcode"
     t.date     "month"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "agent_id"
   end
+
+  add_index "adspots", ["zipcode"], name: "index_adspots_on_zipcode"
 
   create_table "agents", force: true do |t|
     t.text     "name"
