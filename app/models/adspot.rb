@@ -1,3 +1,3 @@
 class Adspot < ActiveRecord::Base
-  belongs to :agent
+  belongs_to :agent
 end
