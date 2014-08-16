@@ -1,7 +1,6 @@
 class AdspotsController < ApplicationController
 
   def new
-    @agent  = Agent.new
     @adspot = Adspot.new
   end
 
@@ -16,12 +15,8 @@ class AdspotsController < ApplicationController
     end
   end
 
-  def show
-    @adspot = Adspot.find(params[:id])
-  end
+  def get_spots
 
-  def index
-    @adspots = Adspots.all
   end
 
   private
