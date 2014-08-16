@@ -1,8 +1,13 @@
 class AdspotsController < ApplicationController
 
   def new
-    @price = 0.00
-    @adspot = Adspot.new(adspot_params)
+    @agent  = Agent.new
+    @adspot = Adspot.new
+  end
+
+  def create
+    @agent = Agent.build(params[:agent])
+    @adspot = @agent.adspot.build(params[:adspot])
 
     if adspot.save?
       redirect_to root_path, :flash => { :success => "Adspot registered successfully" }
