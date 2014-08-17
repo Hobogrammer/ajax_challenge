@@ -13,7 +13,6 @@ class AgentsController < ApplicationController
       count.times do |x|
         @agent.adspots.build(zipcode: params[:zipcode]).save
       end
-      binding.pry
       redirect_to root_path, :flash => { :success => "Adspot registered successfully" }
     else
       redirect_to root_path, :flash => { :error => "The adspot selected could not be registered. Please try again later." }
