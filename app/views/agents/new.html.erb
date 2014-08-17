@@ -1,1 +1,37 @@
-TESTING
+<form id="zipform">
+  Zipcode:<input id="zipcode" name="zipcode" type="text" value = "" pattern="\d*">
+  <input type="submit" value="Submit">
+</form>
+<%= form_for(@agent) do |f| %>
+
+  <div id="adspots">
+  </div>
+<p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+<p>
+</p>
+    <%= f.label :company %>
+    <%= f.text_field :company %>
+<p>
+</p>
+    <%= f.label :city %>
+    <%= f.text_field :phone %>
+</p>
+<p>
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone %>
+</p>
+<p>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+</p>
+<p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+</p>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+<p>Price:  $<span id="price">0.00</span></p>

@@ -5,18 +5,21 @@ class AdspotsController < ApplicationController
   end
 
   def create
-    @agent = Agent.build(params[:agent])
-    @adspot = @agent.adspot.build(params[:adspot])
-
-    if adspot.save?
-      redirect_to root_path, :flash => { :success => "Adspot registered successfully" }
-    else
-      redirect_to root_path, :flash => { :error => "The adspot selected could not be registered. Please try again later." }
-    end
   end
 
-  def get_spots
+  def get_adspot
+    zipcode = params[:zipcode]
+    @adspots = Adspot.where(zipcode:  zipcode).to_a
+    create_number = 5 - @adspots.length
 
+    if create_number > 0
+      create_number.times do |x|
+        @adspots << Adspot.new(zipcode: zipcode) #This definitely doesnt have to actually return an array of objects. They will not be used other than in form making.
+      end
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

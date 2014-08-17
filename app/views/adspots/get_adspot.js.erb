@@ -1,0 +1,8 @@
+$('#adspots').append("<%= @adspots.first.zipcode %>");
+<% @adspots.each do |adspot| %>
+  <% if adspot.agent_id %>
+    $('#adspots').append("<%= escape_javascript check_box_tag 'create_adspot', false, 'create_adspot',disabled: true %>");
+  <% else %>
+   $('#adspots').append("<%= escape_javascript check_box_tag adspot %>");
+  <% end %>
+<% end %>
