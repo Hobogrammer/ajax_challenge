@@ -1,4 +1,4 @@
-FLIPT
+ajax_challenge
 ====
 
 Coding challenge
